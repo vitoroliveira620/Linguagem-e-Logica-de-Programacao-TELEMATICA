@@ -1,0 +1,20 @@
+Atividade 1: Verificar se um número é positivo, negativo ou zero usando if
+Input: 5 Output: O número é positivo.
+Input: -3 Output: O número é negativo.
+Input: 0 Output: O número é zero.
+
+Atividade 2: Determinar se um ano é bissexto ou não usando if else
+Input: 2020 Output: O ano é bissexto.
+Input: 2019 Output: O ano não é bissexto.
+Input: 2000 Output: O ano é bissexto.
+
+Atividade 3: Exibir o dia da semana correspondente a um número usando switch
+Input: 1 Output: Domingo
+Input: 2 Output: Segunda-feira
+Input: 7 Output: Sábado
+Input: 8 Output: Número inválido.
+
+Atividade 4: Exibir o maior de dois números inteiros usando o operador ternário
+Input: 3 5 Output: O maior número é: 5
+Input: 10 2 Output: O maior número é: 10
+Input: 7 7 Output: O maior número é: 7
