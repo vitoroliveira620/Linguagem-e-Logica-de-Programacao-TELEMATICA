@@ -1,0 +1,67 @@
+01) O que é Manipulação de Bits?
+Manipulação de Bits é uma técnica de programação que envolve a manipulação de bits individuais ou grupos de bits dentro de um número binário. Isso pode incluir operações como definir, limpar, alternar, deslocar e rotacionar bits.
+
+02) Qual a Importância da Manipulação de Bits?
+- Otimização de desempenho: Em alguns casos, a manipulação de bits pode ser mais rápida do que operações aritméticas normais.
+- Compressão de dados: A manipulação de bits pode ser usada para compactar dados, reduzindo o espaço de armazenamento necessário.
+- Criptografia: A manipulação de bits é fundamental em muitos algoritmos de criptografia.
+- Controle de hardware: Em sistemas embarcados, a manipulação de bits é frequentemente usada para controlar e interagir com dispositivos de hardware.
+
+03) Quais são as Operações Básicas de Manipulação de Bits?
+- Definir um bit (set): Coloca um bit específico em 1.
+- Limpar um bit (clear): Coloca um bit específico em 0.
+- Alternar um bit (toggle): Alterna o estado de um bit específico entre 0 e 1.
+- Deslocar bits para a esquerda (left shift): Desloca todos os bits para a esquerda e preenche com zeros à direita.
+- Deslocar bits para a direita (right shift): Desloca todos os bits para a direita e preenche com zeros à esquerda ou copia o bit de sinal, dependendo do tipo de deslocamento.
+- Rotacionar bits (rotate): Rotaciona os bits em uma direção circular, sem perder informações.
+- Testar um bit (test): Verifica se um bit específico está definido (1) ou não (0).
+
+04) #include <stdio.h>
+
+// Função para exibir os bits de um número
+void exibir_bits(unsigned int num) {
+    for (int i = 31; i >= 0; i--) {
+        (num & (1 << i)) ? printf("1") : printf("0");
+    }
+    printf("\n");
+}
+
+int main() {
+    unsigned int num = 10;
+
+    printf("Número: %u\n", num);
+    printf("Bits: ");
+    exibir_bits(num);
+
+    // Operação de deslocamento para a esquerda
+    num = num << 2;
+    printf("Deslocamento para a esquerda (<< 2): %u\n", num);
+    printf("Bits: ");
+    exibir_bits(num);
+
+    // Operação de deslocamento para a direita
+    num = num >> 1;
+    printf("Deslocamento para a direita (>> 1): %u\n", num);
+    printf("Bits: ");
+    exibir_bits(num);
+
+    // Operação de conjunção (AND)
+    num = num & 0x0F;
+    printf("Conjunção (AND) com 0x0F: %u\n", num);
+    printf("Bits: ");
+    exibir_bits(num);
+
+    // Operação de disjunção (OR)
+    num = num | 0x10;
+    printf("Disjunção (OR) com 0x10: %u\n", num);
+    printf("Bits: ");
+    exibir_bits(num);
+
+    // Operação de negação (NOT)
+    num = ~num;
+    printf("Negação (NOT): %u\n", num);
+    printf("Bits: ");
+    exibir_bits(num);
+
+    return 0;
+}
