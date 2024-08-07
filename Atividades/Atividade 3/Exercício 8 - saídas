@@ -1,0 +1,27 @@
+1. Calculadora Simples
+Digite o primeiro número inteiro: 10
+Digite o segundo número inteiro: 2
+Soma: 12
+Subtração: 8
+Multiplicação: 20
+Divisão: 5.00
+
+2. Conversão de Temperatura
+Digite a temperatura em graus Celsius: 25
+A temperatura em graus Fahrenheit é: 77.00
+
+3. Verificação de Número Par
+Digite um número inteiro: 10
+O número é par.
+
+4. Cálculo de Média Ponderada
+Digite a primeira nota: 8
+Digite a segunda nota: 9
+Digite a terceira nota: 7
+A média ponderada é: 8.20
+
+5. Troca de Valores
+Digite o primeiro número inteiro: 10
+Digite o segundo número inteiro: 20
+O primeiro número é: 20
+O segundo número é: 10
