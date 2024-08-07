@@ -1,0 +1,34 @@
+As saidas dependem da entrda fornecidas. Sendo assim:
+
+Se x estiver entre 0 e 9:
+Entrada: x = 5
+Saída: Insuficiente
+
+Se x estiver entre 10 e 39:
+Entrada: x = 20
+Saída: Regular
+
+Se x estiver entre 40 e 69:
+Entrada: x = 50
+Saída: Bom
+
+Se x estiver entre 70 e 89:
+Entrada: x = 80
+Saída: Ótimo
+
+Se x estiver entre 90 e 100:
+Entrada: x = 95
+Saída: Excelente
+
+Se x for menor que 0 ou maior que 100:
+Entrada: x = -1 ou x = 101
+Saída: Pontuação inválida
+
+EXEMPLOS
+Usuário entra com x = 7: Insuficiente
+Usuário entra com x = 25: Regular
+Usuário entra com x = 55: Bom
+Usuário entra com x = 75: Ótimo
+Usuário entra com x = 98: Excelente
+Usuário entra com x = 150: Pontuação inválida
+Usuário entra com x = -10: Pontuação inválida
