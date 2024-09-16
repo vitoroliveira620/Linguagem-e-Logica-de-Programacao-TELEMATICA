@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+typedef struct {
+    int matricula;
+    char nome[20];
+    float N1;
+    float N2;
+    float Media;
+    int Faltas;
+    char Reprovado_SN;
+} Aluno;
+
+// Função para calcular média
+float calcula_media(float N1, float N2) {
+    return (N1 + N2) / 2.0;
+}
+
+// Função para verificar aprovação
+int verifica_aprovacao(float media, int faltas) {
+    if (media >= 7.0 && faltas <= 20) {
+        return 1; // Aprovado
+    } else {
+        return 0; // Reprovado
+    }
+}
+
+// Função para mostrar aprovação
+void mostra_aprovacao(Aluno aluno) {
+    float media = calcula_media(aluno.N1, aluno.N2);
+    if (verifica_aprovacao(media, aluno.Faltas)) {
+        printf("Aluno %s está aprovado!\n", aluno.nome);
+    } else {
+        printf("Aluno %s está reprovado.\n", aluno.nome);
+    }
+}
+
+int main() {
+    Aluno alunos[5] = {
+        {1, "João", 8.5, 9.0, 0.0, 25,' '},
+        {2, "Maria", 9.0, 8.0, 0.0, 1,' '},
+        {3, "Pedro", 7.5, 8.5, 0.0, 3,' '},
+        {4, "Ana", 9.5, 9.5, 0.0, 20,' '},
+        {5, "Luiz", 8.0, 7.0, 0.0, 4,' '}
+    };
+
+    for (int i = 0; i < 5; i++) {
+        printf("Aluno %d:\n", i + 1);
+        printf("Matrícula: %d\n", alunos[i].matricula);
+        printf("Nome: %s\n", alunos[i].nome);
+        printf("N1: %.2f\n", alunos[i].N1);
+        printf("N2: %.2f\n", alunos[i].N2);
+        printf("Faltas: %d\n", alunos[i].Faltas);
+        mostra_aprovacao(alunos[i]);
+        printf("\n");
+    }
+
+    return 0;
+}
