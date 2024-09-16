@@ -1,38 +1,58 @@
 #include <stdio.h>
-#include <stdlib.h>
+
+typedef struct {
+    int matricula;
+    char nome[20];
+    float N1;
+    float N2;
+    float Media;
+    int Faltas;
+    char Reprovado_SN;
+} Aluno;
+
+// Função para calcular média
+float calcula_media(float N1, float N2) {
+    return (N1 + N2) / 2.0;
+}
+
+// Função para verificar aprovação
+int verifica_aprovacao(float media, int faltas) {
+    if (media >= 7.0 && faltas <= 20) {
+        return 1; // Aprovado
+    } else {
+        return 0; // Reprovado
+    }
+}
+
+// Função para mostrar aprovação
+void mostra_aprovacao(Aluno aluno) {
+    float media = calcula_media(aluno.N1, aluno.N2);
+    if (verifica_aprovacao(media, aluno.Faltas)) {
+        printf("Aluno %s está aprovado!\n", aluno.nome);
+    } else {
+        printf("Aluno %s está reprovado.\n", aluno.nome);
+    }
+}
 
 int main() {
-    // 1. Criar um arquivo que armazena linhas de texto
-    FILE *arquivo = fopen("meu_arquivo.txt", "w");
-    if (arquivo == NULL) {
-        printf("Erro ao criar arquivo!\n");
-        return 1;
-    }
+    Aluno alunos[5] = {
+        {1, "João", 8.5, 9.0, 0.0, 25,' '},
+        {2, "Maria", 9.0, 8.0, 0.0, 1,' '},
+        {3, "Pedro", 7.5, 8.5, 0.0, 3,' '},
+        {4, "Ana", 9.5, 9.5, 0.0, 20,' '},
+        {5, "Luiz", 8.0, 7.0, 0.0, 4,' '}
+    };
 
-    // 2. O arquivo será alimentado por dados digitados no teclado
-    char linha[1024];
-    printf("Digite as linhas de texto (digite 'sair' para terminar):\n");
-    while (1) {
-        printf("> ");
-        fgets(linha, 1024, stdin);
-        if (strcmp(linha, "sair\n") == 0) {
-            break;
-        }
-        fprintf(arquivo, "%s", linha);
+    for (int i = 0; i < 5; i++) {
+        printf("Aluno %d:\n", i + 1);
+        printf("Matrícula: %d\n", alunos[i].matricula);
+        printf("Nome: %s\n", alunos[i].nome);
+        printf("N1: %.2f\n", alunos[i].N1);
+        printf("N2: %.2f\n", alunos[i].N2);
+        printf("Faltas: %d\n", alunos[i].Faltas);
+        mostra_aprovacao(alunos[i]);
+        printf("\n");
     }
-
-    // 3. Mostrar o conteúdo do arquivo
-    fclose(arquivo);
-    arquivo = fopen("meu_arquivo.txt", "r");
-    if (arquivo == NULL) {
-        printf("Erro ao ler arquivo!\n");
-        return 1;
-    }
-    char caractere;
-    while ((caractere = fgetc(arquivo)) != EOF) {
-        printf("%c", caractere);
-    }
-    fclose(arquivo);
 
     return 0;
 }
