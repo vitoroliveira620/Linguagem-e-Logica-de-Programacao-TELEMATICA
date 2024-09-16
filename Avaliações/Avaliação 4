@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    // 1. Criar um arquivo que armazena linhas de texto
+    FILE *arquivo = fopen("meu_arquivo.txt", "w");
+    if (arquivo == NULL) {
+        printf("Erro ao criar arquivo!\n");
+        return 1;
+    }
+
+    // 2. O arquivo será alimentado por dados digitados no teclado
+    char linha[1024];
+    printf("Digite as linhas de texto (digite 'sair' para terminar):\n");
+    while (1) {
+        printf("> ");
+        fgets(linha, 1024, stdin);
+        if (strcmp(linha, "sair\n") == 0) {
+            break;
+        }
+        fprintf(arquivo, "%s", linha);
+    }
+
+    // 3. Mostrar o conteúdo do arquivo
+    fclose(arquivo);
+    arquivo = fopen("meu_arquivo.txt", "r");
+    if (arquivo == NULL) {
+        printf("Erro ao ler arquivo!\n");
+        return 1;
+    }
+    char caractere;
+    while ((caractere = fgetc(arquivo)) != EOF) {
+        printf("%c", caractere);
+    }
+    fclose(arquivo);
+
+    return 0;
+}
